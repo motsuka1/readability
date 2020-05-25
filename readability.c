@@ -6,6 +6,7 @@
 
 int count_letters(string argv);
 int count_words(string argv);
+int count_sentences(string argv);
 
 int main(void)
 {
@@ -13,6 +14,7 @@ int main(void)
     printf("%lu length of string\n", strlen(text));
     printf("%i letter(s)\n", count_letters(text));
     printf("%i word(s)\n", count_words(text));
+    printf("%i sentence(s)\n", count_sentences(text));
 }
 
 //Letters can be any uppercase or lowercase alphabetic characters, but shouldn’t include any punctuation, digits, or other symbols.
@@ -49,4 +51,21 @@ int count_words(string argv)
     }
     int num_words = num_spaces + 1;
     return num_words;
+}
+
+int count_sentences(string argv)
+{
+    int num_sentences = 0;
+    for(int i = 0, n = strlen(argv); i < n; i++)
+    {
+        if(argv[i] == 46)
+        {
+            num_sentences += 1;
+        }
+        else
+        {
+            num_sentences += 0;
+        }
+    }
+    return num_sentences;
 }
